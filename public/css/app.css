@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@import url(https://use.fontawesome.com/releases/v5.1.0/css/all.css);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.0.0 (https://getbootstrap.com)
@@ -9503,5 +9503,22 @@ a.text-dark:focus {
   .table-bordered td {
     border: 1px solid #ddd !important;
   }
+}
+
+/* Sticky Footer Classes */
+
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+  -webkit-box-flex: 1;
+          flex: 1 0 auto;
+}
+
+#sticky-footer {
+  flex-shrink: none;
+  color: white;
 }
 
