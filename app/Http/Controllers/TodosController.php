@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Todo;
+
 class TodosController extends Controller
 {
     /**
@@ -13,11 +14,10 @@ class TodosController extends Controller
      */
     public function index()
     {
-        $todos= Todo::get();
-
         // dd($todos);
-        
-        return view("index",['todos'=>$todos]);
+        // $todos= Todo::get();
+        $todos = Todo::OrderBy('created_at', 'desc')->get();
+        return view("index", ['todos' => $todos]);
     }
 
     /**
@@ -47,9 +47,15 @@ class TodosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Request $req)
     {
-        //
+        $todo = Todo::find($id);
+        // $todo = Todo::where('id',$id)->first();
+
+        if ($req->wantsJson()) {
+            return $todo;
+        }
+        return view('show', ['todo' => $todo]);
     }
 
     /**

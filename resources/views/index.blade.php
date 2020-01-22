@@ -24,7 +24,7 @@
             </a>
           </h5>
            <p class="card-text">{{ $item['content'] }}</p>
-           
+        <a class="btn btn-success btn-sm" href="{{ route("todo.show", $item['id']) }}">detail...</a>
         </div>
         <div class="card-footer text-muted">
           {{ $item['due'] }}
