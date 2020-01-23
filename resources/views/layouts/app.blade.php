@@ -7,6 +7,8 @@
   <title>@yield('title','todo app')</title>
   
   <link rel="stylesheet" href="/css/app.css">
+  <script src="/js/app.js"></script>
+
 </head>
 <body class="d-flex flex-column">
   <div id="page-content">
@@ -19,11 +21,12 @@
       </div>
     </div>
   </div>
+
+
   <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
     <div class="container text-center">
       <small>Copyright &copy; twkhjl</small>
     </div>
   </footer>
-  <script src="/js/app.js"></script>
 </body>
 </html>

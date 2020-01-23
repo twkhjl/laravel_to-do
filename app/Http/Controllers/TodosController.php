@@ -17,7 +17,7 @@ class TodosController extends Controller
         // dd($todos);
         // $todos= Todo::get();
         $todos = Todo::OrderBy('created_at', 'desc')->get();
-        return view("index", ['todos' => $todos]);
+        return view("todos/index", ['todos' => $todos]);
     }
 
     /**
@@ -25,10 +25,10 @@ class TodosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+    // public function create()
+    // {
+            //     
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -38,7 +38,17 @@ class TodosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $new_todo=new Todo;
+        $data=$request['form_data'];
+
+        for ($i=0; $i < count($data); $i++) { 
+            $new_todo[$data[$i]["name"]] = $data[$i]["value"];
+        }
+       
+        $new_todo->save();
+
+        return $new_todo;
+        
     }
 
     /**
@@ -55,7 +65,7 @@ class TodosController extends Controller
         if ($req->wantsJson()) {
             return $todo;
         }
-        return view('show', ['todo' => $todo]);
+        return view('todos/show', ['todo' => $todo]);
     }
 
     /**

@@ -13,6 +13,9 @@
 
 Route::get('/', "TodosController@index");
 
-Route::resource('todo', 'TodosController');
+Route::resource('todo', 'TodosController')->except([
+  'create'
+]);
 
+Route::get('/ttt', 'TestController@index');
 
