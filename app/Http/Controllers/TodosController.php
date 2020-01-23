@@ -12,14 +12,20 @@ class TodosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $req)
     {
         // dd($todos);
         // $todos= Todo::get();
         $todos = Todo::OrderBy('created_at', 'desc')->get();
+
+        if ($req->wantsJson()) {
+            return view("todos/inc/cards", ['todos' => $todos]);
+        }
         return view("todos/index", ['todos' => $todos]);
     }
 
+
+//use bs4 modal,so we comment out the create function
     /**
      * Show the form for creating a new resource.
      *
@@ -99,6 +105,10 @@ class TodosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // https://laravel.com/docs/5.8/eloquent#deleting-models
+        $todo=Todo::find($id);
+        $todo->delete();
+        return back();
+
     }
 }
