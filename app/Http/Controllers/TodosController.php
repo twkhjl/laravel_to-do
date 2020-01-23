@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Todo;
+use App\Helpers\AppHelper;
 
 class TodosController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -47,10 +49,9 @@ class TodosController extends Controller
         $new_todo=new Todo;
         $data=$request['form_data'];
 
-        for ($i=0; $i < count($data); $i++) { 
-            $new_todo[$data[$i]["name"]] = $data[$i]["value"];
-        }
-       
+        // app\Helpers\AppHelper.php
+        append_data_from_serialize_array($new_todo,$data);
+
         $new_todo->save();
 
         return $new_todo;
@@ -80,10 +81,10 @@ class TodosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
+    // public function edit($id)
+    // {
+    //     //
+    // }
 
     /**
      * Update the specified resource in storage.
@@ -94,7 +95,13 @@ class TodosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $todo=Todo::find($id);
+        $data=$request['form_data'];
+
+        // app\Helpers\AppHelper.php
+        append_data_from_serialize_array($todo,$data);
+
+        $todo->save();
     }
 
     /**
@@ -111,4 +118,5 @@ class TodosController extends Controller
         return back();
 
     }
+
 }

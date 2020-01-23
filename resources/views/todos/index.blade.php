@@ -15,9 +15,8 @@
 
 <!-- #modal_create_todo -->
 <div class="col-sm-12 my-4">
-<button class="text-right btn btn-success" data-toggle="modal" data-target="#modal_create_todo">
+<button id= "btn_create_todo" class="text-right btn btn-success" data-toggle="modal" data-target="#modal_create_todo">
   <i class="fas fa-plus mr-2"></i>新增...
-
 </button>
 </div>
 
@@ -82,7 +81,7 @@
       .prop('checked', false)
       .prop('selected', false);
   }
-  
+
   //script init
   $(document).ready(function(){
 
