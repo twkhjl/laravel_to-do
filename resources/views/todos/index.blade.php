@@ -2,8 +2,8 @@
 @section('content')
 <div class="row">
 <div class="col-sm-12">
-  <h1 class="text-center my-4">To-do list 
-  </h1>
+
+
   <!-- alert -->
   <div id="div_alert" style="position:fixed; z-index:99;top:10%;left:auto;display:none;" class="alert alert-success" role="alert">
     <b><div class="div_alert_content">

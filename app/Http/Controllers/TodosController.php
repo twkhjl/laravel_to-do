@@ -64,15 +64,12 @@ class TodosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id, Request $req)
+    public function show($id)
     {
         $todo = Todo::find($id);
         // $todo = Todo::where('id',$id)->first();
 
-        if ($req->wantsJson()) {
-            return $todo;
-        }
-        return view('todos/show', ['todo' => $todo]);
+        return view('todos/inc/show', ['todo' => $todo]);
     }
 
     /**
