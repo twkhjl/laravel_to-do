@@ -114,8 +114,10 @@ class TodosController extends Controller
     {
         // https://laravel.com/docs/5.8/eloquent#deleting-models
         $todo=Todo::find($id);
-        $todo->delete();
-        return back();
+        if($todo->delete()){
+            return $todo->toJson();
+        }
+        // return back();
 
     }
 

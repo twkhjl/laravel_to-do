@@ -43,12 +43,12 @@
               <textarea name="content" class="form-control" id="input_content" cols="20" rows="5"></textarea>
             </div>
           </div>
-          <div class="form-group row">
+          {{-- <div class="form-group row">
             <label for="input_due" class="col-sm-2 col-form-label">日期</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" id="input_due" name="due">
             </div>
-          </div>
+          </div> --}}
         </form>
       </div>
       <div class="modal-footer">
